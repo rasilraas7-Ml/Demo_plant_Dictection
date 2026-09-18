@@ -1,0 +1,100 @@
+{
+  "classes": [
+    {
+      "index": 0,
+      "id": "Tomato___Early_Blight",
+      "plant": "Tomato",
+      "disease": "Early Blight",
+      "scientific_name": "Alternaria solani",
+      "is_healthy": false
+    },
+    {
+      "index": 1,
+      "id": "Tomato___Late_Blight",
+      "plant": "Tomato",
+      "disease": "Late Blight",
+      "scientific_name": "Phytophthora infestans",
+      "is_healthy": false
+    },
+    {
+      "index": 2,
+      "id": "Tomato___Leaf_Mold",
+      "plant": "Tomato",
+      "disease": "Leaf Mold",
+      "scientific_name": "Passalora fulva",
+      "is_healthy": false
+    },
+    {
+      "index": 3,
+      "id": "Tomato___Healthy",
+      "plant": "Tomato",
+      "disease": "Healthy",
+      "scientific_name": "Solanum lycopersicum",
+      "is_healthy": true
+    },
+    {
+      "index": 4,
+      "id": "Potato___Early_Blight",
+      "plant": "Potato",
+      "disease": "Early Blight",
+      "scientific_name": "Alternaria solani",
+      "is_healthy": false
+    },
+    {
+      "index": 5,
+      "id": "Potato___Late_Blight",
+      "plant": "Potato",
+      "disease": "Late Blight",
+      "scientific_name": "Phytophthora infestans",
+      "is_healthy": false
+    },
+    {
+      "index": 6,
+      "id": "Potato___Healthy",
+      "plant": "Potato",
+      "disease": "Healthy",
+      "scientific_name": "Solanum tuberosum",
+      "is_healthy": true
+    },
+    {
+      "index": 7,
+      "id": "Pepper___Bacterial_Spot",
+      "plant": "Pepper",
+      "disease": "Bacterial Spot",
+      "scientific_name": "Xanthomonas campestris",
+      "is_healthy": false
+    },
+    {
+      "index": 8,
+      "id": "Pepper___Healthy",
+      "plant": "Pepper",
+      "disease": "Healthy",
+      "scientific_name": "Capsicum annuum",
+      "is_healthy": true
+    },
+    {
+      "index": 9,
+      "id": "Apple___Scab",
+      "plant": "Apple",
+      "disease": "Apple Scab",
+      "scientific_name": "Venturia inaequalis",
+      "is_healthy": false
+    },
+    {
+      "index": 10,
+      "id": "Apple___Black_Rot",
+      "plant": "Apple",
+      "disease": "Black Rot",
+      "scientific_name": "Botryosphaeria obtusa",
+      "is_healthy": false
+    },
+    {
+      "index": 11,
+      "id": "Apple___Healthy",
+      "plant": "Apple",
+      "disease": "Healthy",
+      "scientific_name": "Malus domestica",
+      "is_healthy": true
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Analysis History — PlantGuard AI</title>
+  <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+  <nav class="navbar">
+    <a href="/" class="brand">PlantGuard AI</a>
+    <div class="nav-links">
+      <a href="/">Live Scanner</a>
+      <a href="/camera">Camera Feed</a>
+      <a href="/history" class="active">History Vault</a>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="card">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+        <div>
+          <h2>Diagnostic History Vault</h2>
+          <p style="color: #a1a1aa; font-size: 0.85rem;">Records stored in Firestore and local persistent storage.</p>
+        </div>
+      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Plant</th>
+            <th>Disease</th>
+            <th>Confidence</th>
+            <th>Damage %</th>
+            <th>Severity</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% if history %}
+            {% for item in history %}
+            <tr>
+              <td>{{ item.timestamp[:10] if item.timestamp else 'N/A' }}</td>
+              <td><strong>{{ item.plant }}</strong></td>
+              <td>{{ item.disease }}</td>
+              <td>{{ item.confidence }}%</td>
+              <td><strong>{{ item.damage_percentage }}%</strong></td>
+              <td><span class="badge badge-{{ item.severity|lower|replace(' ', '-') }}">{{ item.severity }}</span></td>
+              <td><a href="/analysis/{{ item.id }}" class="btn btn-secondary" style="padding: 0.25rem 0.5rem; font-size: 0.75rem;">View</a></td>
+            </tr>
+            {% endfor %}
+          {% else %}
+            <tr>
+              <td colspan="7" style="text-align: center; color: #71717a; padding: 2rem;">No diagnostic scans found. Capture a leaf to begin.</td>
+            </tr>
+          {% endif %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</body>
+</html>

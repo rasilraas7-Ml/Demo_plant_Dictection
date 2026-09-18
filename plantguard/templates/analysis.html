@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Specimen Report — PlantGuard AI</title>
+  <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+  <nav class="navbar">
+    <a href="/" class="brand">PlantGuard AI</a>
+    <div class="nav-links">
+      <a href="/">Live Scanner</a>
+      <a href="/camera">Camera Feed</a>
+      <a href="/history">History Vault</a>
+    </div>
+  </nav>
+
+  <div class="container" style="max-width: 900px;">
+    <div class="card">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+        <div>
+          <h2>{{ record.plant }} — {{ record.disease }}</h2>
+          <span style="font-size: 0.8rem; color: #a1a1aa;">Record ID: {{ record.id }} &bull; {{ record.timestamp }}</span>
+        </div>
+        <span class="badge badge-severe">{{ record.severity }}</span>
+      </div>
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.5rem;">
+        <div>
+          <h4 style="margin-bottom: 0.5rem; font-size: 0.85rem; color: #a1a1aa;">AI Lesion Segmentation</h4>
+          <div style="background: #000; border-radius: 0.5rem; overflow: hidden; aspect-ratio: 4/3;">
+            <img src="{{ record.processed_image_url }}" style="width: 100%; height: 100%; object-fit: contain;">
+          </div>
+        </div>
+        <div>
+          <h4 style="margin-bottom: 0.5rem; font-size: 0.85rem; color: #a1a1aa;">Segmentation Mask</h4>
+          <div style="background: #000; border-radius: 0.5rem; overflow: hidden; aspect-ratio: 4/3;">
+            <img src="{{ record.mask_image_url }}" style="width: 100%; height: 100%; object-fit: contain;">
+          </div>
+        </div>
+      </div>
+
+      <div class="metric-grid">
+        <div class="metric-box">
+          <div class="metric-label">Damage Percentage</div>
+          <div class="metric-val" style="color: #f87171;">{{ record.damage_percentage }}%</div>
+        </div>
+        <div class="metric-box">
+          <div class="metric-label">Healthy Leaf Area</div>
+          <div class="metric-val" style="color: #34d399;">{{ record.healthy_percentage }}%</div>
+        </div>
+        <div class="metric-box">
+          <div class="metric-label">AI Diagnostic Confidence</div>
+          <div class="metric-val">{{ record.confidence }}%</div>
+        </div>
+        <div class="metric-box">
+          <div class="metric-label">Detected Leaf Pixels</div>
+          <div class="metric-val">{{ record.leaf_area }} px</div>
+        </div>
+      </div>
+
+      <div style="margin-top: 1.5rem;">
+        <a href="/history" class="btn btn-secondary">&larr; Back to History</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

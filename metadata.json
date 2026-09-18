@@ -1,0 +1,7 @@
+{
+  "name": "PlantGuard AI — Real-Time Plant Disease & Damage Detector",
+  "description": "Real-time plant disease detection, leaf validation, and lesion damage segmentation with severity calculation.",
+  "requestFramePermissions": ["camera"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
+

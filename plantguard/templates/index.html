@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PlantGuard AI — Real-Time Plant Disease & Damage Detector</title>
+  <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+  <nav class="navbar">
+    <a href="/" class="brand">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M12 2a10 10 0 0 1 10 10c0 5.523-4.477 10-10 10S2 17.523 2 12A10 10 0 0 1 12 2Z"></path>
+        <path d="M7 12c3-3 7-3 10 0"></path>
+      </svg>
+      PlantGuard AI
+    </a>
+    <div class="nav-links">
+      <a href="/" class="active">Live Scanner</a>
+      <a href="/camera">Camera Feed</a>
+      <a href="/history">History Vault</a>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="grid-2">
+      <!-- Camera Feed Column -->
+      <div class="card">
+        <h2 style="font-size: 1.1rem; margin-bottom: 0.5rem;">Live Optical Scanner</h2>
+        <p style="font-size: 0.8rem; color: #a1a1aa; margin-bottom: 1rem;">
+          Align a single leaf within the targeting guide box.
+        </p>
+
+        <div class="video-container">
+          <img id="stream-view" src="/video_feed" alt="Live Camera Video Stream">
+        </div>
+
+        <div style="margin-top: 1rem; display: flex; gap: 0.75rem;">
+          <button id="capture-btn" class="btn btn-primary" style="flex: 1;">
+            Capture &amp; Diagnose Leaf
+          </button>
+        </div>
+      </div>
+
+      <!-- Results Column -->
+      <div class="card" id="result-panel" style="display: none;">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+          <div>
+            <h3 id="res-plant" style="font-size: 1.25rem; font-weight: 800;">Tomato — Early Blight</h3>
+            <p id="res-scientific" style="font-size: 0.8rem; color: #a1a1aa; font-style: italic;"></p>
+          </div>
+          <span id="res-severity" class="badge badge-severe">Moderate</span>
+        </div>
+
+        <!-- Mode selector -->
+        <div style="margin: 1rem 0; display: flex; justify-content: space-between; align-items: center;">
+          <label style="font-size: 0.8rem; color: #a1a1aa;">Inspection Mode:</label>
+          <select id="overlay-mode" style="background: #27272a; color: white; border: 1px solid #3f3f46; padding: 0.35rem 0.75rem; border-radius: 0.5rem; font-size: 0.8rem;">
+            <option value="ai_analysis">AI Analysis Overlay</option>
+            <option value="original">Original Leaf</option>
+            <option value="damage_mask">Damage Segmentation Mask</option>
+          </select>
+        </div>
+
+        <div style="width: 100%; aspect-ratio: 4/3; background: #000; border-radius: 0.5rem; overflow: hidden; margin-bottom: 1rem;">
+          <img id="result-img" src="" style="width: 100%; height: 100%; object-fit: contain;">
+        </div>
+
+        <!-- Metrics -->
+        <div class="metric-grid">
+          <div class="metric-box">
+            <div class="metric-label">AI Confidence</div>
+            <div class="metric-val" id="res-confidence">94.6%</div>
+          </div>
+          <div class="metric-box">
+            <div class="metric-label">Damage Area Ratio</div>
+            <div class="metric-val" id="res-damage" style="color: #f87171;">24.0%</div>
+          </div>
+          <div class="metric-box">
+            <div class="metric-label">Healthy Leaf Tissue</div>
+            <div class="metric-val" id="res-healthy" style="color: #34d399;">76.0%</div>
+          </div>
+          <div class="metric-box">
+            <div class="metric-label">Total Leaf Area</div>
+            <div class="metric-val" id="res-leaf-area">45,000 px</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/static/js/app.js"></script>
+</body>
+</html>
